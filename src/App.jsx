@@ -21,13 +21,19 @@ export default function App() {
   function addNote(newNote) {
     const myNotesUpdated = [newNote, ...myNotes]
     setMyNotes(myNotesUpdated)
-    console.log(myNotes)
   }
 
   return (
     <>
       <h1>Minhas notas - Início</h1>
 
+      <section>
+        {myNotes.map((note) => (
+          <div key={note.id}>
+            <p>{note.title}</p>
+          </div>
+        ))}
+      </section>
 
 
       <hr />
