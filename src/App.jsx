@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+
+  const [ title, setTitle ] = useState("")
+  const [ content, setContent ] = useState("")
+  const [ myNotes, setMyNotes ] = useState([])
+
+  function saveNote(event) {
+    event.preventDefault()
+    const id = Date.now()
+    const createdAt = new Date()
+    const newNote = { title, content, id, createdAt }
+    console.log(`Nota salva!`)
+    console.log(newNote)
+    addNote(newNote)
+    setTitle('')
+    setContent('')
+  }
+
+  function addNote(newNote) {
+    const myNotesUpdated = [newNote, ...myNotes]
+    setMyNotes(myNotesUpdated)
+    console.log(myNotes)
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Minhas notas - Início</h1>
+
+
+
+      <hr />
+
+      <h1>Nova nota</h1>
+      <form onSubmit={saveNote}> {/* Passando a função como callback */}
+
+        <input
+          type="text"
+          placeholder="Título"
+          value={title}
+          onChange={(ev) => setTitle(ev.target.value)}
+        />
+        <textarea
+          name=""
+          id=""
+          placeholder="Nota"
+          value={content}
+          onChange={(ev) => setContent(ev.target.value)}
+        >
+        </textarea>
+
+        <button type="submit">Salvar</button> {/* Adicionando o tipo="submit" */}
+      
+      </form>
+      <hr />
+
     </>
   )
 }
-
-export default App
