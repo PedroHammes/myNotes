@@ -1,16 +1,18 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function App() {
 
   const [ title, setTitle ] = useState("")
   const [ content, setContent ] = useState("")
   const [ myNotes, setMyNotes ] = useState([])
+  const [ myNotesLength, setMyNotesLength] = useState(0)
 
   function saveNote(event) {
     event.preventDefault()
     const id = Date.now()
     const createdAt = new Date()
-    const newNote = { title, content, id, createdAt }
+    const date = `${createdAt.getDay()}/${createdAt.getMonth()}/${createdAt.getFullYear()} (${createdAt.getHours()}h${createdAt.getMinutes()})`
+    const newNote = { title, content, id, createdAt, date }
     console.log(`Nota salva!`)
     console.log(newNote)
     addNote(newNote)
@@ -23,6 +25,10 @@ export default function App() {
     setMyNotes(myNotesUpdated)
   }
 
+  useEffect(() => {
+    setMyNotesLength(myNotes.length)
+  }, [myNotes])
+
   return (
     <>
       <h1>Minhas notas - Início</h1>
@@ -30,7 +36,8 @@ export default function App() {
       <section>
         {myNotes.map((note) => (
           <div key={note.id}>
-            <p>{note.title}</p>
+            <p>{note.title} | {note.date}</p>
+            <p>{note.content}</p>
           </div>
         ))}
       </section>
@@ -60,6 +67,10 @@ export default function App() {
       
       </form>
       <hr />
+
+      <h1>Perfil</h1>
+      
+      <p>Notas: {myNotesLength}</p>
 
     </>
   )
