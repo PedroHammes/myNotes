@@ -25,52 +25,76 @@ export default function App() {
     setMyNotes(myNotesUpdated)
   }
 
-  useEffect(() => {
+  // Sempre que o total de notas for alterado (adição ou exclusão)
+  //  o total de notas será alterado para a quantidade de notas salvas 
+  useEffect(() => { 
     setMyNotesLength(myNotes.length)
   }, [myNotes])
 
+  function Home() {
+    return (
+      <>
+        <h1>Minhas notas - Início</h1>
+
+        <section>
+          {myNotes.map((note) => (
+            <div key={note.id}>
+              <p>{note.title} | {note.date}</p>
+              <p>{note.content}</p>
+            </div>
+          ))}
+        </section>
+      </>
+    )
+  }
+
+  function NewNote() {
+    return (
+      <>
+        <h1>Nova nota</h1>
+        <form onSubmit={saveNote}> {/* Passando a função como callback */}
+
+          <input
+            type="text"
+            placeholder="Título"
+            value={title}
+            onChange={(ev) => setTitle(ev.target.value)}
+          />
+
+          <textarea
+            name=""
+            id=""
+            placeholder="Nota"
+            value={content}
+            onChange={(ev) => setContent(ev.target.value)}
+          >
+          </textarea>
+
+          <button type="submit">Salvar</button> {/* Adicionando o tipo="submit" */}
+      
+        </form>
+      </>
+    )
+  }
+
+  function Profile() {
+    return (
+      <>
+        <h1>Perfil</h1>
+      
+        <p>Minhas notas: {myNotesLength}</p>
+      </>
+    )
+  }
+
   return (
     <>
-      <h1>Minhas notas - Início</h1>
 
-      <section>
-        {myNotes.map((note) => (
-          <div key={note.id}>
-            <p>{note.title} | {note.date}</p>
-            <p>{note.content}</p>
-          </div>
-        ))}
-      </section>
-
-
-      <hr />
-
-      <h1>Nova nota</h1>
-      <form onSubmit={saveNote}> {/* Passando a função como callback */}
-
-        <input
-          type="text"
-          placeholder="Título"
-          value={title}
-          onChange={(ev) => setTitle(ev.target.value)}
-        />
-        <textarea
-          name=""
-          id=""
-          placeholder="Nota"
-          value={content}
-          onChange={(ev) => setContent(ev.target.value)}
-        >
-        </textarea>
-
-        <button type="submit">Salvar</button> {/* Adicionando o tipo="submit" */}
-      
-      </form>
-      <hr />
-
-      <h1>Perfil</h1>
-      
-      <p>Notas: {myNotesLength}</p>
+    <Home />
+    <hr />
+    <NewNote />
+    <hr />
+    <Profile />
 
     </>
   )
