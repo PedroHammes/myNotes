@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import NewNote from "./pages/NewNote";
 import Profile from "./pages/Profile";
-import useNotes from "./hooks/useNotes";
 
 export default function AppRoutes() {
 

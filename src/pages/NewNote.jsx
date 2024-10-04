@@ -44,16 +44,6 @@ export default function NewNote() {
                 <button type="submit">Salvar</button> {/* Adicionando o tipo="submit" */}
         
             </form>
-            
-            <p>Tamanho: {myNotes.length}</p>
-            <section>
-                {myNotes.map((note) => (
-                <div key={note.id}>
-                    <p>{note.title} | {note.date}</p>
-                    <p>{note.content}</p>
-                </div>
-                ))}
-            </section>
         </>
     )
 }

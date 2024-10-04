@@ -1,14 +1,6 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { NotesContext } from "../context/Notes";
 
-function useNotes() {
-    const [ myNotes, setMyNotes ] = useState([])
-
-    function addNote(newNote) {
-        const myNotesUpdated = [newNote, ...myNotes]
-        setMyNotes(myNotesUpdated)
-    }
-
-    return { myNotes, addNote }
+export default function useNotes() {
+    return useContext(NotesContext)
 }
-
-export default useNotes
