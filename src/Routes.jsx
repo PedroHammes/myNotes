@@ -7,16 +7,18 @@ export default function AppRoutes() {
 
     return (
         <BrowserRouter>
-        <nav>
-            <Link to="/" > Início </Link>
-            <Link to="/new-note" > Nova </Link>
-            <Link to="/profile" > Perfil </Link>
-        </nav>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/new-note" element={<NewNote />} />
                 <Route path="/profile" element={<Profile />} />
             </Routes>
+            <footer 
+                className = "flex flex-row justify-between px-4 bg-blue text-white"
+            >
+                <Link to="/" className=""> Início </Link>
+                <Link to="/new-note" > Nova </Link>
+                <Link to="/profile" > Perfil </Link>
+            </footer>
         </BrowserRouter>
     )
 }
