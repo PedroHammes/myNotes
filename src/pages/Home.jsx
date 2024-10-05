@@ -1,5 +1,5 @@
 import useNotes from "../hooks/useNotes"
-
+import '../output.css'
 
 export default function Home() {
  
