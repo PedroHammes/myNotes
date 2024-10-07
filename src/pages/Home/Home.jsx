@@ -18,7 +18,8 @@ export default function Home() {
             myNotes.map((note) => (
               Note({note})
             )) :
-            <p>Crie sua primeira nota</p>
+            <p>Não há nada por aqui ainda... <br />Comece a escrever :)</p>
+
           }
         </section>
       </>

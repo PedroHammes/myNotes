@@ -11,7 +11,9 @@ export default function NewNote() {
         event.preventDefault()
         const id = Date.now()
         const createdAt = new Date()
-        const date = `${createdAt.getDay()}/${createdAt.getMonth()}/${createdAt.getFullYear()} (${createdAt.getHours()}h${createdAt.getMinutes()})`
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
+        const date = `${createdAt.toLocaleDateString('pt-BR', dateOptions)} (${createdAt.toLocaleTimeString()})`
+        // const date = `${createdAt.getDay()}/${createdAt.getMonth()}/${createdAt.getFullYear()} (${createdAt.getHours()}h${createdAt.getMinutes()})`
         const newNote = { title, content, id, createdAt, date }
         console.log(`Nota salva!`)
         console.log(newNote)
