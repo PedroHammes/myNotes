@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import NewNote from "./pages/NewNote";
 import Profile from "./pages/Profile";
 
@@ -16,7 +16,6 @@ export default function AppRoutes() {
                 className = "flex flex-row justify-between px-4 bg-blue text-white"
             >
                 <Link to="/" className=""> Início </Link>
-                <Link to="/new-note" > Nova </Link>
                 <Link to="/profile" > Perfil </Link>
             </footer>
         </BrowserRouter>

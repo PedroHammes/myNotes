@@ -3,7 +3,7 @@ import useNotes from "../hooks/useNotes"
 
 export default function NewNote() {
     
-    const { addNote, myNotes } = useNotes()
+    const { addNote } = useNotes()
     const [ title, setTitle ] = useState("")
     const [ content, setContent ] = useState("")
 
