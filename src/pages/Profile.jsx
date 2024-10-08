@@ -15,7 +15,6 @@ export default function Profile() {
     return (
       <>
         <h1>Perfil</h1>
-      
         <p>Minhas notas: {myNotesLength}</p>
       </>
     )
