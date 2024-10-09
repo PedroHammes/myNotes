@@ -1,14 +1,19 @@
 import PropTypes from "prop-types"
+import useNotes from "../../hooks/useNotes"
 
 Note.propTypes = {
-    // id: PropTypes.string,
-    // title: PropTypes.string,
-    // date: PropTypes.string,
-    // content: PropTypes.string
     note: PropTypes.object
 }
 
 export default function Note({note}) {
+
+    const { deleteNote } = useNotes()
+
+    function handleDeleteNote(noteId) {
+        console.log(`Deletando a nota: ${noteId}`)
+        deleteNote(noteId)
+    }
+
     return (
         <div
             key={note.id}
@@ -19,9 +24,10 @@ export default function Note({note}) {
                 <p className="font-semibold text-slate-400"> {note.date.slice(22, 27)} </p>
             </div>
 
-            {note.content.length < 25 ? 
-                <p> {note.content} </p> :
+            {note.content.length > 25 ? 
                 <p>{note.content.slice(0,24)}...</p>
+                :
+                <p> {note.content} </p>
             }
 
             <div className="flex flex-row justify-between">
@@ -30,7 +36,7 @@ export default function Note({note}) {
                 </span>
 
                 <div className="flex flex-row space-x-2">
-                    <button>
+                    <button onClick={() => handleDeleteNote(note.id)}>
                         <svg 
                             className="size-5 fill-slate-700"
                             xmlns="http://www.w3.org/2000/svg"

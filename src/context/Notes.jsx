@@ -16,8 +16,8 @@ export function NotesContextProvider({children}) {
         setMyNotes(myNotesUpdated)
     }
 
-    const deleteNote = (targetNote) => {
-        const myNotesUpdated = myNotes.filter((note) => note.id != targetNote.id)
+    const deleteNote = (idToDelete) => {
+        const myNotesUpdated = myNotes.filter((note) => note.id != idToDelete)
         setMyNotes(myNotesUpdated)
     }
 
