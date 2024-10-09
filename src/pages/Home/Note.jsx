@@ -10,7 +10,7 @@ Note.propTypes = {
 
 export default function Note({note}) {
     return (
-        <div key={note.id} className="rounded-lg bg-blue-100 p-3 flex flex-col space-y-3">
+        <div key={note.id} className="box-border rounded-lg bg-blue-100 flex flex-col space-y-3">
             <p className="flex flex-row justify-between"> <span className="font-bold">{note.title} </span>  <span className="font-semibold text-slate-400">  {note.date.slice(22, 27)} </span> </p>
             <p>{note.content}</p>
             <div className="flex flex-row justify-between">

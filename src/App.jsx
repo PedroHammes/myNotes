@@ -5,7 +5,7 @@ import './styles/index.css'
 export default function App() {
   return (
     <NotesContextProvider>
-      <div className="flex flex-col h-screen bg-blue-50">
+      <div className="box-border flex flex-col h-screen px-4 py-4 pb-10 bg-blue-500">
         <AppRoutes />
       </div>
     </NotesContextProvider>

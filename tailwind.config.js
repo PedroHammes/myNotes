@@ -15,6 +15,9 @@ export default {
         500: '#3b82f6',
         600: '#2563eb'
       },
+      green: {
+        500: '#22c55e'
+      },
       slate : {
         400: '#94a3b8',
         500: '#64748b', 
@@ -26,8 +29,17 @@ export default {
       },
       red: {
         600: '#dc2626'
+      },
+      yellow: {
+        300: '#fde047'
+      },
+      pink: {
+        500: '#ec4899'
       }
     }
+  },
+  corePlugins: {
+    preflight: true
   },
   plugins: [],
 }

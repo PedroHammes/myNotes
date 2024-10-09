@@ -4,7 +4,7 @@ export default function BtnToNewNote() {
     return (
         <Link to="/new-note" >
             <button
-                className="border-2 border-blue-500 rounded-lg h-20 w-16 flex items-center justify-center"
+                className="box-border border-2 border-blue-500 rounded-lg h-20 w-16 flex items-center justify-center"
             >
                 {/* <svg 
                     className="size-10 stroke-blue-500"

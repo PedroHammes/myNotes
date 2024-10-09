@@ -8,7 +8,7 @@ export default function Home() {
     const { myNotes } = useNotes()
     
     return (
-      <div className="bg-blue-50 px-4 py-4 space-y-4">
+      <div className="box-border bg-blue-50 px-4 py-4 space-y-4">
         <p>myNotes</p>
         <BtnToNewNote />
         <section className="mb-10 min-h-96 flex flex-col space-y-4">
