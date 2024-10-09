@@ -12,14 +12,17 @@ export default function Note({note}) {
     return (
         <div
             key={note.id}
-            className="rounded-lg flex flex-col p-2 space-y-2 bg-blue-200 text-slate-700"
+            className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200 text-slate-700"
         >
             <div className="flex flex-row justify-between"> 
                 <p className="font-bold"> {note.title} </p>
                 <p className="font-semibold text-slate-400"> {note.date.slice(22, 27)} </p>
             </div>
 
-            <p> {note.content} </p>
+            {note.content.length < 25 ? 
+                <p> {note.content} </p> :
+                <p>{note.content.slice(0,24)}...</p>
+            }
 
             <div className="flex flex-row justify-between">
                 <span className="font-semibold text-slate-400">
