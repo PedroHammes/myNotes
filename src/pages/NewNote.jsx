@@ -27,7 +27,6 @@ export default function NewNote() {
                 onSubmit={saveNote}
                 className="flex-1"
             >
-                {/* Div do cabeçalho OK */}
                 <div className="flex flex-row justify-start items-top gap-2">
                     <button type="submit">
                         <svg 
