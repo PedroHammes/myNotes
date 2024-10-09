@@ -1,6 +1,5 @@
 import { useState } from "react"
 import useNotes from "../hooks/useNotes"
-import { Link } from "react-router-dom"
 
 export default function NewNote() {
     
@@ -24,14 +23,12 @@ export default function NewNote() {
 
     return (
         <>
-        {/* <div className="box-border bg-blue-50 px-4 py-4 space-y-4">
-            <p className="bg-blue-500">oi</p> */}
             <form 
                 onSubmit={saveNote}
-                className="flex-1 bg-green-500"
+                className="flex-1"
             >
                 {/* Div do cabeçalho OK */}
-                <div className="flex flex-row justify-start gap-2 bg-yellow-300">
+                <div className="flex flex-row justify-start items-top gap-2">
                     <button type="submit">
                         <svg 
                             className="size-7 stroke-blue-500"
@@ -42,44 +39,26 @@ export default function NewNote() {
                             <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
                         </svg>
                     </button>
-                    <input type="text" />
-                </div>
-                <textarea className="w-full h-full bg-pink-500 ">
-
-                </textarea>
-                {/* <div
-                    className="box-border flex flex-row gap-2 items-center"
-                >
-                    <button type="submit">
-                        <svg 
-                            className="size-7 stroke-blue-500"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
-                        </svg>
-                    </button>
-                    <input
-                        className="bg-blue-50 text-3xl text-slate-700 outline-none ring-0"
+                    <input 
                         type="text"
+                        className="w-full bg-blue-50 text-slate-700 text-2xl outline-none"
                         placeholder="Título"
                         value={title}
                         maxLength={20}
                         onChange={(ev) => setTitle(ev.target.value)}
                     />
-                </div> */}
-                {/* <textarea
-                    className="box-border bg-blue-50 px-4 text-xl text-slate-600 outline-none ring-0"
+                </div>
+                <textarea 
+                    className="w-full h-full bg-blue-50 p-4 text-xl text-slate-600 outline-none"
                     name=""
                     id=""
-                    placeholder="Nota"
+                    placeholder="Nota..."
                     value={content}
-                    maxLength={409}
+                    maxLength={280}
                     onChange={(ev) => setContent(ev.target.value)}
-                ></textarea> */}
+                >
+                </textarea>
             </form>
-        {/* </div> */}
         </>
     )
 }
