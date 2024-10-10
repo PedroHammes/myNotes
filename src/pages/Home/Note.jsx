@@ -48,7 +48,7 @@ export default function Note({note}) {
                         </svg>
                     </button>
 
-                    <Link to="/:id">
+                    <Link to={`/${note.id}`} >
                         <button onClick={() => console.log('abrindo nota')}>
                             <svg
                                 className="size-5 fill-blue-500"
