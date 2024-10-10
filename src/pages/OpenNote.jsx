@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import useNotes from "../hooks/useNotes"
 
+
 export default function OpenNote() {
     const { id } = useParams()
     const { myNotes } = useNotes()

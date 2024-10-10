@@ -20,7 +20,7 @@ export default function Note({note}) {
                 key={note.id}
                 className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200 text-slate-700"
             >
-                <Link to={`/${note.id}`}>
+                {/* <Link to={`/${note.id}`}> */}
                     <div className="flex flex-row justify-between"> 
                         <p className="font-bold"> {note.title} </p>
                         <p className="font-semibold text-slate-400"> {note.date.slice(23, 28)} </p>
@@ -50,7 +50,7 @@ export default function Note({note}) {
                             </button>
                         </div>
                     </div>
-                </Link>
+                {/* </Link> */}
             </div>
     )
 }
