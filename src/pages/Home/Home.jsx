@@ -1,5 +1,5 @@
 import useNotes from "../../hooks/useNotes"
-import Note from "./Note"
+import NotePreview from "./NotePreview"
 import BtnToNewNote from "./BtnToNewNote"
 import '../../styles/index.css'
 
@@ -18,7 +18,7 @@ export default function Home() {
            {
              myNotes.length > 0 ?
              myNotes.map((note) => (
-               Note({note})
+               NotePreview({note})
              )) :
              <p>Não há nada por aqui ainda... <br />Comece a escrever :)</p>
            }

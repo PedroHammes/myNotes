@@ -1,27 +1,41 @@
 import { useState } from "react"
 import useNotes from "../hooks/useNotes"
 import { useNavigate } from "react-router-dom"
+import PropTypes from "prop-types"
 
-export default function Form() {
+Form.propTypes = {
+    noteToEdit: PropTypes.object
+}
 
-    const { addNote } = useNotes()
-    const [ title, setTitle ] = useState("")
-    const [ content, setContent ] = useState("")
+export default function Form({noteToEdit}) {
+
+    const { myNotes, addNote } = useNotes()
     const navigate = useNavigate()
+
+    const [ title, setTitle ] = useState(noteToEdit ? noteToEdit.title : "")
+    const [ content, setContent ] = useState(noteToEdit ? noteToEdit.content : "")
 
     function saveNote(event) {
         event.preventDefault()
-        const id = Date.now()
-        const createdAt = new Date()
-        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
-        const date = `${createdAt.toLocaleDateString('pt-BR', dateOptions)} (${createdAt.toLocaleTimeString()})`
-        const newNote = { title, content, id, createdAt, date }
-        console.log(`Nota salva!`)
-        console.log(newNote)
-        addNote(newNote)
-        setTitle('')
-        setContent('')
-        navigate("/")
+        if (!noteToEdit) {
+            const id = Date.now()
+            const createdAt = new Date()
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
+            const created = `${createdAt.toLocaleDateString('pt-BR', dateOptions)} (${createdAt.toLocaleTimeString()})`
+            const newNote = { title, content, id, createdAt, created }
+            console.log(`Nota salva!`)
+            console.log(newNote)
+            addNote(newNote)
+            setTitle('')
+            setContent('')
+            navigate("/")
+        } else {
+            const editedAt = new Date()
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
+            const edited = `${editedAt.toLocaleDateString('pt-BR', dateOptions)} (${editedAt.toLocaleTimeString()})`
+            console.log('Nota atualizada!')
+            navigate("/")
+        }
     }
 
     return (
