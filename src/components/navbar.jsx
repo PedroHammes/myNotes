@@ -19,7 +19,7 @@ export default function Navbar() {
         <navbar 
             className = {`h-10 bg-blue-50 fixed bottom-0 left-4 right-4 flex flex-row justify-between items-center transition-all duration-500 ${isScrolled ? 'translate-y-full' : 'translate-y-0'}`}
         >
-            <Link to="/" className="">
+            <Link to="/">
                 <svg
                     className="size-7"
                     xmlns="http://www.w3.org/2000/svg"

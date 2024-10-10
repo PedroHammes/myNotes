@@ -1,11 +1,13 @@
 import { useState } from "react"
 import useNotes from "../hooks/useNotes"
+import { useNavigate } from "react-router-dom"
 
 export default function NewNote() {
     
     const { addNote } = useNotes()
     const [ title, setTitle ] = useState("")
     const [ content, setContent ] = useState("")
+    const navigate = useNavigate()
 
     function saveNote(event) {
         event.preventDefault()
@@ -19,6 +21,7 @@ export default function NewNote() {
         addNote(newNote)
         setTitle('')
         setContent('')
+        navigate("/")
     }
 
     return (
