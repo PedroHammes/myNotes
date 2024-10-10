@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import useNotes from "../../hooks/useNotes"
+import { Link } from "react-router-dom"
 
 Note.propTypes = {
     note: PropTypes.object
@@ -21,7 +22,7 @@ export default function Note({note}) {
         >
             <div className="flex flex-row justify-between"> 
                 <p className="font-bold"> {note.title} </p>
-                <p className="font-semibold text-slate-400"> {note.date.slice(22, 27)} </p>
+                <p className="font-semibold text-slate-400"> {note.date.slice(23, 28)} </p>
             </div>
 
             {note.content.length > 25 ? 
@@ -32,7 +33,7 @@ export default function Note({note}) {
 
             <div className="flex flex-row justify-between">
                 <span className="font-semibold text-slate-400">
-                    {note.date.slice(0, 8)}
+                    {note.date.slice(0, 9)}
                 </span>
 
                 <div className="flex flex-row space-x-2">
@@ -47,16 +48,18 @@ export default function Note({note}) {
                         </svg>
                     </button>
 
-                    <button>
-                        <svg
-                            className="size-5 fill-blue-500"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                        >
-                            <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
-                        </svg>
-                    </button>
+                    <Link to="/:id">
+                        <button onClick={() => console.log('abrindo nota')}>
+                            <svg
+                                className="size-5 fill-blue-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                            >
+                                <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+                            </svg>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
