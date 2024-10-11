@@ -9,7 +9,7 @@ export default function Home() {
     
     return (
       <div className="flex-1 flex flex-col gap-4">
-        <h1 className="font-mono text-3xl">myNotes</h1>
+        <h1 className="font-semibold text-3xl  text-slate-800">myNotes</h1>
         <BtnToNewNote />
 
         <section

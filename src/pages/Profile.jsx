@@ -9,8 +9,8 @@ export default function Profile() {
         flex
         flex-col
         gap-4
-       bg-yellow-300">
-        <h1 className="text-3xl">Suas notas</h1>
+        font-outfit">
+        <h1 className="font-semibold text-3xl  text-slate-800">Suas notas</h1>
 
       {/* Métricas do perfil */}
       <section className="flex flex-row flex-wrap gap-4">
@@ -59,7 +59,7 @@ export default function Profile() {
             <p className="text-3xl">
             {
                   lastEdited ? 
-                  (`${lastEdited.edited.slice(0,2)} ${lastEdited.edited.slice(5,9)} ${lastEdited.edited.slice(19,21)} - ${lastEdited.edited.slice(23,28)}`) : 
+                  (`${lastEdited.edited.slice(0,2)} ${lastEdited.edited.slice(5,9)} ${lastEdited.edited.slice(19,21)} (${lastEdited.edited.slice(23,28)})`) : 
                   '-'
                 }
             </p>

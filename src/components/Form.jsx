@@ -58,7 +58,7 @@ export default function Form({noteToEdit}) {
                 </button>
                 <input 
                     type="text"
-                    className="w-full bg-blue-50 text-slate-700 text-3xl outline-none"
+                    className="w-full bg-blue-50 text-slate-800 text-3xl outline-none font-outfit"
                     placeholder="Título"
                     value={title}
                     maxLength={20}
@@ -66,7 +66,7 @@ export default function Form({noteToEdit}) {
                 />
             </div>
             <textarea 
-                    className="w-full h-full bg-blue-50 p-4 text-xl text-slate-600 outline-none"
+                    className="w-full h-full bg-blue-50 p-4 text-xl text-slate-800 outline-none font-outfit"
                     name=""
                     id=""
                     placeholder="Nota..."

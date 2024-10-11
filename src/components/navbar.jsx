@@ -21,7 +21,7 @@ export default function Navbar() {
         >
             <Link to="/">
                 <svg
-                    className="size-7"
+                    className="size-8 fill-slate-800"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
@@ -33,7 +33,7 @@ export default function Navbar() {
 
             <Link to="/profile" >
                 <svg
-                    className="size-7"
+                    className="size-8 fill-slate-800"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"

@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        outfit: ["Outfit", "sans-serif"]
+      }
+    },
     colors: {
       blue: {
         50: '#eff6ff',
@@ -19,6 +23,7 @@ export default {
         500: '#22c55e'
       },
       slate : {
+        300: '#cbd5e1',
         400: '#94a3b8',
         500: '#64748b', 
         600: '#475569',

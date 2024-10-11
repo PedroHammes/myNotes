@@ -18,18 +18,18 @@ export default function NotePreview({note}) {
     return (
             <div 
                 key={note.id}
-                className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200 text-slate-700"
+                className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200"
             >
                 <Link to={`/${note.id}`}>
                     <div className="flex flex-row justify-between"> 
-                        <p className="font-bold"> {note.title} </p>
+                        <p className="font-bold  text-slate-800"> {note.title} </p>
                         <p className="font-semibold text-slate-400"> {note.created.slice(23, 28)} </p>
                     </div>
 
                     {note.content.length > 25 ? 
                         <p>{note.content.slice(0,24)}...</p>
                         :
-                        <p> {note.content} </p>
+                        <p className="font-medium text-slate-800"> {note.content} </p>
                     }
                 </Link>
 
@@ -41,7 +41,7 @@ export default function NotePreview({note}) {
                     <div className="flex flex-row space-x-2">
                         <button onClick={() => handleDeleteNote(note.id)}>
                             <svg 
-                                className="size-5 fill-slate-700"
+                                className="size-6 fill-slate-800"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"
