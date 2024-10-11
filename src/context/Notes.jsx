@@ -21,10 +21,25 @@ export function NotesContextProvider({children}) {
         setMyNotes(myNotesUpdated)
     }
 
+    // A função recebe o ID da nota a ser alterada e um objeto com novos dados
+    // Percorre myNotes e se o id da nota for igual ao do parâmetro atualiza os dados dessa nota
+    // Ao final o myNotesUpdated estará atualizado e será usado
+    //  como parâmetro para setMyNotes
+    const editNote = (noteID, editedNote) => {
+        const myNotesUpdated = myNotes.map(note => {
+            if (note.id === noteID) {
+                return {...note, ...editedNote}
+            }
+            return note
+        })
+        setMyNotes(myNotesUpdated)
+    }
+
     const notes = {
         myNotes,
         addNote,
-        deleteNote
+        deleteNote,
+        editNote
     }
 
     return (

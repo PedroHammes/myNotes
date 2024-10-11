@@ -9,7 +9,7 @@ Form.propTypes = {
 
 export default function Form({noteToEdit}) {
 
-    const { myNotes, addNote } = useNotes()
+    const { addNote, editNote } = useNotes()
     const navigate = useNavigate()
 
     const [ title, setTitle ] = useState(noteToEdit ? noteToEdit.title : "")
@@ -33,6 +33,8 @@ export default function Form({noteToEdit}) {
             const editedAt = new Date()
             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
             const edited = `${editedAt.toLocaleDateString('pt-BR', dateOptions)} (${editedAt.toLocaleTimeString()})`
+            const editedNote = {title, content, editedAt, edited}
+            editNote(noteToEdit.id, editedNote)
             console.log('Nota atualizada!')
             navigate("/")
         }
