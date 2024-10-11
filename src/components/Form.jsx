@@ -58,7 +58,7 @@ export default function Form({noteToEdit}) {
                 </button>
                 <input 
                     type="text"
-                    className="w-full bg-blue-50 text-slate-700 text-2xl outline-none"
+                    className="w-full bg-blue-50 text-slate-700 text-3xl outline-none"
                     placeholder="Título"
                     value={title}
                     maxLength={20}

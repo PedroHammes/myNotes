@@ -16,21 +16,22 @@ export default function NotePreview({note}) {
     }
 
     return (
-            <Link 
-                to={`/${note.id}`}
+            <div 
                 key={note.id}
                 className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200 text-slate-700"
             >
-                <div className="flex flex-row justify-between"> 
-                    <p className="font-bold"> {note.title} </p>
-                    <p className="font-semibold text-slate-400"> {note.created.slice(23, 28)} </p>
-                </div>
+                <Link to={`/${note.id}`}>
+                    <div className="flex flex-row justify-between"> 
+                        <p className="font-bold"> {note.title} </p>
+                        <p className="font-semibold text-slate-400"> {note.created.slice(23, 28)} </p>
+                    </div>
 
-                {note.content.length > 25 ? 
-                    <p>{note.content.slice(0,24)}...</p>
-                    :
-                    <p> {note.content} </p>
-                }
+                    {note.content.length > 25 ? 
+                        <p>{note.content.slice(0,24)}...</p>
+                        :
+                        <p> {note.content} </p>
+                    }
+                </Link>
 
                 <div className="flex flex-row justify-between">
                     <span className="font-semibold text-slate-400">
@@ -50,6 +51,6 @@ export default function NotePreview({note}) {
                         </button>
                     </div>
                 </div>
-            </Link>
+            </div>
     )
 }

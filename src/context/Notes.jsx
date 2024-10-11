@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
 import PropTypes from "prop-types"
 
 NotesContextProvider.propTypes = {
@@ -35,11 +35,58 @@ export function NotesContextProvider({children}) {
         setMyNotes(myNotesUpdated)
     }
 
+    const [ storedNotes, setStoredNotes] = useState(0)
+    // Sempre que o total de notas for alterado (adição ou exclusão)
+    //  o total de notas será atualizado para a quantidade de notas salvas 
+    useEffect(() => { 
+        setStoredNotes(myNotes.length)
+    }, [myNotes])
+
+    const [ firstNote, setFirstNote ] = useState("")
+    useEffect(() => {
+        let oldestDate = new Date()
+        myNotes.forEach((note) => {
+            if (note.createdAt < oldestDate) {
+                oldestDate = note.createdAt
+                setFirstNote(note)
+            }
+        })
+    }, [myNotes])
+
+    const [ lastEdited, setLastEdited ] = useState("")
+    useEffect(() => {
+        let lastEdited = firstNote.createdAt
+        myNotes.forEach((note) => {
+            if (note.editedAt > lastEdited) {
+                lastEdited = note.editedAt
+                setLastEdited(note)
+            }
+        })
+    })
+
+    const [ oldestNote, setOldestNote ] = useState("")
+    useEffect(() => {
+        let oldestDate = new Date()
+        if (myNotes.length == 0) {
+            setOldestNote("")
+        }
+        myNotes.forEach((note) => {
+            if (note.createdAt < oldestDate) {
+                oldestDate = note.createdAt
+                setOldestNote(note)
+            }
+        })
+    }, [myNotes])
+
     const notes = {
         myNotes,
         addNote,
         deleteNote,
-        editNote
+        editNote,
+        storedNotes,
+        firstNote,
+        lastEdited,
+        oldestNote
     }
 
     return (
