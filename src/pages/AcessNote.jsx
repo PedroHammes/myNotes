@@ -8,8 +8,6 @@ export default function AcessNote() {
     const { myNotes } = useNotes()
 
     const noteToEdit = myNotes.find(note => Number(note.id) == Number(id))
-    console.log(`id: ${id}\nNote.id: ${noteToEdit.id}`)
-
 
     return (
         <Form noteToEdit={noteToEdit}/>
