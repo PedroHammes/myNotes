@@ -9,5 +9,6 @@ export default defineConfig({
     hmr: {
       overlay: true
     }
-  }
+  },
+  base: "/myNotes"
 })
