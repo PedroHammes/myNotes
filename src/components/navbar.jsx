@@ -17,11 +17,19 @@ export default function Navbar() {
 
     return (
         <nav 
-            className = {`h-10 bg-blue-50 fixed bottom-0 left-4 right-4 flex flex-row justify-between items-center transition-all duration-500 ${isScrolled ? 'translate-y-full' : 'translate-y-0'}`}
+            className = {`  h-10 rounded-t-lg bg-blue-500 fixed bottom-0 left-4 right-4 flex flex-row px-4 justify-between items-center transition-all duration-500 ${isScrolled ? 'translate-y-full' : 'translate-y-0'}
+                            min-[500px]:justify-center
+                            min-[500px]:gap-64
+                            min-[500px]:left-12
+                            min-[500px]:right-12
+                            lg:h-16
+                            lg:pr-4
+                            lg:justify-start
+                            lg:gap-64`}
         >
             <Link to="/">
                 <svg
-                    className="size-8 fill-slate-800"
+                    className="size-8 fill-blue-50 lg:size-12"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
@@ -33,7 +41,7 @@ export default function Navbar() {
 
             <Link to="/profile" >
                 <svg
-                    className="size-8 fill-slate-800"
+                    className="size-8 fill-blue-50 lg:size-12"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"

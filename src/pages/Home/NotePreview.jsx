@@ -18,30 +18,46 @@ export default function NotePreview({note}) {
     return (
             <div 
                 key={note.id}
-                className="min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200"
+                className=" min-w-72 grow max-w-[32rem] h-[104px] rounded-lg flex flex-col p-2 space-y-2 bg-blue-200
+                            lg:h-[200px]
+                            lg:p-4
+                            lg:justify-around"
             >
-                <Link to={`/${note.id}`}>
+                <Link to={`/${note.id}`} className="lg:space-y-4">
                     <div className="flex flex-row justify-between"> 
-                        <p className="font-bold  text-slate-800"> {note.title} </p>
-                        <p className="font-semibold text-slate-400"> {note.created.slice(23, 28)} </p>
+                        <p className="  text-xl font-bold  text-slate-800
+                                        lg:text-3xl"
+                        > {note.title} </p>
+                        <p className="  text-xl font-semibold text-slate-400
+                                        lg:text-3xl"
+                        > {note.created.slice(23, 28)} </p>
                     </div>
 
                     {note.content.length > 25 ? 
-                        <p>{note.content.slice(0,24)}...</p>
+                        <p className="  text-lg font-medium text-slate-800
+                                        lg:text-3xl"
+                        > 
+                                        {note.content.slice(0,24)}...
+                        </p>
                         :
-                        <p className="font-medium text-slate-800"> {note.content} </p>
+                        <p className="  text-lg font-medium text-slate-800
+                                        lg:text-3xl"
+                        >
+                                        {note.content}
+                        </p>
                     }
                 </Link>
 
                 <div className="flex flex-row justify-between">
-                    <span className="font-semibold text-slate-400">
+                    <span className="   text-xl font-semibold text-slate-400
+                                        lg:text-3xl">
                         {note.created.slice(0, 9)}
                     </span>
 
                     <div className="flex flex-row space-x-2">
                         <button onClick={() => handleDeleteNote(note.id)}>
                             <svg 
-                                className="size-6 fill-slate-800"
+                                className="size-6 fill-slate-800 lg:size-10"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 fill="currentColor"

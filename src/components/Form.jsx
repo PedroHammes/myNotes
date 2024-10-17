@@ -50,7 +50,7 @@ export default function Form({noteToEdit}) {
             <div className="flex flex-row justify-start items-top gap-2">
                 <button type="submit">
                     <svg 
-                        className="size-7 stroke-blue-500"
+                        className="size-7 fill-blue-500 lg:size-14"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="currentColor"
@@ -60,7 +60,8 @@ export default function Form({noteToEdit}) {
                 </button>
                 <input 
                     type="text"
-                    className="w-full bg-blue-50 text-slate-800 text-3xl outline-none font-outfit"
+                    className=" w-full text-slate-800 text-3xl outline-none font-outfit
+                                lg:text-5xl"
                     placeholder="Título"
                     value={title}
                     maxLength={20}
@@ -68,7 +69,8 @@ export default function Form({noteToEdit}) {
                 />
             </div>
             <textarea 
-                    className="w-full h-full bg-blue-50 p-4 text-xl text-slate-800 outline-none font-outfit"
+                    className=" w-full h-full p-4 text-xl text-slate-800 outline-none font-outfit
+                                lg:text-3xl"
                     name=""
                     id=""
                     placeholder="Nota..."
