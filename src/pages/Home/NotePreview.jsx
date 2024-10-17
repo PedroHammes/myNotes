@@ -23,7 +23,7 @@ export default function NotePreview({note}) {
                             lg:p-4
                             lg:justify-around"
             >
-                <Link to={`/${note.id}`} className="lg:space-y-4">
+                <Link to={`/myNotes/${note.id}`} className="lg:space-y-4">
                     <div className="flex flex-row justify-between"> 
                         <p className="  text-xl font-bold  text-slate-800
                                         lg:text-3xl"

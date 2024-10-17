@@ -30,7 +30,7 @@ export default function Form({noteToEdit}) {
             addNote(newNote)
             setTitle('')
             setContent('')
-            navigate("/")
+            navigate("/myNotes")
         } else {
             const editedAt = new Date()
             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
@@ -38,7 +38,7 @@ export default function Form({noteToEdit}) {
             const editedNote = {title, content, editedAt, edited}
             editNote(noteToEdit.id, editedNote)
             console.log('Nota atualizada!')
-            navigate("/")
+            navigate("/myNotes")
         }
     }
 

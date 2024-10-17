@@ -27,7 +27,7 @@ export default function Navbar() {
                             lg:justify-start
                             lg:gap-64`}
         >
-            <Link to="/">
+            <Link to="/myNotes">
                 <svg
                     className="size-8 fill-blue-50 lg:size-12"
                     xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ export default function Navbar() {
                 </svg>
             </Link>
 
-            <Link to="/profile" >
+            <Link to="/myNotes/profile" >
                 <svg
                     className="size-8 fill-blue-50 lg:size-12"
                     xmlns="http://www.w3.org/2000/svg"

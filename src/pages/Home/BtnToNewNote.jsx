@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function BtnToNewNote() {
     return (
-        <Link to="/new-note" >
+        <Link to="/myNotes/new-note" >
             <button
                 className=" box-border border-2 border-blue-500 rounded-lg h-24 w-20 flex items-center justify-center
                             lg:border-4

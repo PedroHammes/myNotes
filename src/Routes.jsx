@@ -10,10 +10,10 @@ export default function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/:id" element={<AcessNote />}/>
-                <Route path="/new-note" element={<NewNote />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/myNotes" element={<Home />} />
+                <Route path="/myNotes/:id" element={<AcessNote />}/>
+                <Route path="/myNotes/new-note" element={<NewNote />} />
+                <Route path="/myNotes/profile" element={<Profile />} />
             </Routes>
             <Navbar />
         </BrowserRouter>
