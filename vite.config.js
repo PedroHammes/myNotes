@@ -10,5 +10,5 @@ export default defineConfig({
       overlay: true
     }
   },
-  base: "/myNotes"
+  base: "/"
 })
