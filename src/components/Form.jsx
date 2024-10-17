@@ -20,9 +20,11 @@ export default function Form({noteToEdit}) {
         if (!noteToEdit) {
             const id = Date.now()
             const createdAt = new Date()
+            const editedAt = new Date()
             const dateOptions = { year: 'numeric', month: 'long', day: 'numeric'}
             const created = `${createdAt.toLocaleDateString('pt-BR', dateOptions)} (${createdAt.toLocaleTimeString()})`
-            const newNote = { title, content, id, createdAt, created }
+            const edited = `${editedAt.toLocaleDateString('pt-BR', dateOptions)} (${editedAt.toLocaleTimeString()})`
+            const newNote = { title, content, id, createdAt, created, editedAt, edited }
             console.log(`Nota salva!`)
             console.log(newNote)
             addNote(newNote)

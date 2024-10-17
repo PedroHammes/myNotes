@@ -9,13 +9,17 @@ export const NotesContext = createContext({})
 
 export function NotesContextProvider({children}) {
     
+    //  myNotes é iniciado como um array vazio
     const [ myNotes, setMyNotes ] = useState([])
-    
+
+    //  adiciona a nova nota ao array myNotes
     const addNote = (newNote) => {
         const myNotesUpdated = [newNote, ...myNotes]
         setMyNotes(myNotesUpdated)
     }
-
+    
+    //  1) filtra todas as notas (exceto a nota à ser deletada) para um novo array
+    //  2) seta este novo array como o valor de myNotes
     const deleteNote = (idToDelete) => {
         const myNotesUpdated = myNotes.filter((note) => note.id != idToDelete)
         setMyNotes(myNotesUpdated)
@@ -35,13 +39,16 @@ export function NotesContextProvider({children}) {
         setMyNotes(myNotesUpdated)
     }
 
+    //  Sempre que o myNotes for alterado (adição, exclusão, edição)
+    //  essas quatro operações são executadas:
+    
+    //  (1/4) O total de notas será atualizado para a quantidade de notas salvas 
     const [ storedNotes, setStoredNotes] = useState(0)
-    // Sempre que o total de notas for alterado (adição ou exclusão)
-    //  o total de notas será atualizado para a quantidade de notas salvas 
     useEffect(() => { 
         setStoredNotes(myNotes.length)
     }, [myNotes])
 
+    //  (2/4) A data da primeira nota criada será conferido 
     const [ firstNote, setFirstNote ] = useState("")
     useEffect(() => {
         let oldestDate = new Date()
@@ -53,6 +60,7 @@ export function NotesContextProvider({children}) {
         })
     }, [myNotes])
 
+    //  (3/4) A data da última edição será atualizada
     const [ lastEdited, setLastEdited ] = useState("")
     useEffect(() => {
         let lastEdited = firstNote.createdAt
@@ -64,6 +72,7 @@ export function NotesContextProvider({children}) {
         })
     })
 
+    //  (4/4) A nota mais antiga entre as notas salvas será atualizada
     const [ oldestNote, setOldestNote ] = useState("")
     useEffect(() => {
         let oldestDate = new Date()
